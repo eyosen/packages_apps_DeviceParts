@@ -43,6 +43,8 @@ import com.android.internal.util.aicp.PackageUtils;
 public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String OP7_DOLBY_PKGNAME = "com.oneplus.sound.tuner";
+
     public static final String GESTURE_HAPTIC_SETTINGS_VARIABLE_NAME = "OFF_GESTURE_HAPTIC_ENABLE";
     public static final String GESTURE_MUSIC_PLAYBACK_SETTINGS_VARIABLE_NAME = "MUSIC_PLAYBACK_GESTURE_ENABLE";
 
@@ -61,6 +63,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String KEY_GESTURES_CATEGORY = "category_gestures";
     private static final String KEY_POWER_CATEGORY = "category_power";
     private static final String KEY_AUDIOGAINS_CATEGORY = "category_audiogains";
+    private static final String KEY_AUDIO_CATEGORY = "category_audio";
 
     public static final String KEY_HEADPHONE_GAIN = "headphone_gain";
     public static final String KEY_EARPIECE_GAIN = "earpiece_gain";
@@ -284,6 +287,11 @@ public class DeviceSettings extends PreferenceFragment implements
             countVibRemoved += 1;
         }
         if (countVibRemoved == 3) vibratorCategory.getParent().removePreference(vibratorCategory);
+
+        PreferenceCategory audioCategory = (PreferenceCategory) findPreference(KEY_AUDIO_CATEGORY);
+        if (!PackageUtils.isPackageAvailable(getContext(), OP7_DOLBY_PKGNAME)) {
+            audioCategory.getParent().removePreference(audioCategory);
+        }
     }
 
     @Override
