@@ -40,6 +40,9 @@
     <!-- Path to devices sweep to wake toggle file -->
     <string name="pathSweepToWakeToggle"></string>
 
+    <!-- Path to devices sweep to sleep toggle file -->
+    <string name="pathSweepToSleepToggle"></string>
+
     <!-- Path to devices High Brigness Mode toggle file -->
     <string name="pathHBMModeToggle"></string>
     <string name="hbmOFF">"0"</string>
