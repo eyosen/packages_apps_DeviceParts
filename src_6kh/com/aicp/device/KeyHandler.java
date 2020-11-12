@@ -90,7 +90,7 @@ public class KeyHandler implements CustomKeyHandler {
     private static final int GESTURE_M_SCANCODE = 247;
     private static final int GESTURE_S_SCANCODE = 248;
     private static final int GESTURE_CIRCLE_SCANCODE = 250;
-    private static final int GESTURE_V_SCANCODE = 252;
+    private static final int GESTURE_V_SCANCODE = 255;
     private static final int GESTURE_II_SCANCODE = 251;
     private static final int GESTURE_LEFT_V_SCANCODE = 253;
     private static final int GESTURE_RIGHT_V_SCANCODE = 254;
