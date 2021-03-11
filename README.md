@@ -5,7 +5,7 @@
 
 ### Currently supported devices:
 
-  * Google Nexus 5: Hammerhead
+  * Google Nexus 5: hammerhead
   * OnePlus 5:      cheeseburger
   * OnePlus 5T:     dumpling
   * OnePlus 6:      enchilada
@@ -13,7 +13,10 @@
   * OnePlus 7:      guacamoleb
   * OnePlus 7 Pro:  guacamole
   * OnePlus 7T Pro: hotdog
-
+  * OnePlus 8:      instantnoodle
+  * OnePlus 8 Pro:  instantnoodlep
+  * OnePlus 8T:     kebab
+ 
 ### Description
 
 Based on OMNIROMs DeviceParts package, the idea is to manage device specific
