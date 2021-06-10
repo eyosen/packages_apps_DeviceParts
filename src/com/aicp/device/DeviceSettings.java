@@ -147,7 +147,6 @@ public class DeviceSettings extends PreferenceFragment implements
         final Resources res = getContext().getResources();
         boolean supportsGestures = res.getBoolean(R.bool.config_device_supports_gestures);
         boolean supportsPanels = res.getBoolean(R.bool.config_device_supports_panels);
-        boolean supportsSoundtuner = res.getBoolean(R.bool.config_device_supports_soundtuner);
 
         SelfRemovingPreferenceCategory sliderCategory = (SelfRemovingPreferenceCategory) findPreference(KEY_SLIDER_CATEGORY);
         if (sliderCategory != null) {
