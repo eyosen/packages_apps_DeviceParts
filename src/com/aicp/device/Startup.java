@@ -80,6 +80,9 @@ public class Startup extends BroadcastReceiver {
             enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_S2S_SWITCH, false);
             Settings.System.putInt(resolver, SweepToSleepSwitch.SETTINGS_KEY, enabled ? 1 : 0);
 
+            enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_GAMEMODE_SWITCH, false);
+            Settings.System.putInt(resolver, GameModeSwitch.SETTINGS_KEY, enabled ? 1 : 0);
+
             enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_S2W_SWITCH, false);
             Settings.System.putInt(resolver, SweepToWakeSwitch.SETTINGS_KEY, enabled ? 1 : 0);
 
@@ -240,6 +243,9 @@ public class Startup extends BroadcastReceiver {
 
         enabled = Settings.System.getInt(resolver, SweepToSleepSwitch.SETTINGS_KEY, 0) != 0;
         restore(SweepToSleepSwitch.getFile(context), enabled);
+
+        enabled = Settings.System.getInt(resolver, GameModeSwitch.SETTINGS_KEY, 0) != 0;
+        restore(GameModeSwitch.getFile(context), enabled);
 
         enabled = Settings.System.getInt(resolver, SweepToWakeSwitch.SETTINGS_KEY, 0) != 0;
         restore(SweepToWakeSwitch.getFile(context), enabled);

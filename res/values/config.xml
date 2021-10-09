@@ -132,4 +132,7 @@
 
     <!-- Show/hide the QS tile, if device supports switching HighBrightness mode or not -->
     <bool name="enableHBMModeTile">false</bool>
+
+    <!-- Path to devices game mode toggle file -->
+    <string name="pathGameModeToggle"></string>
 </resources>

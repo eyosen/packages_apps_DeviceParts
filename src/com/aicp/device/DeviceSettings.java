@@ -79,6 +79,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String KEY_GESTURES_CATEGORY = "category_gestures";
     private static final String KEY_POWER_CATEGORY = "category_power";
     private static final String KEY_AUDIOGAINS_CATEGORY = "category_audiogains";
+    private static final String KEY_GAMEMODE_CATEGORY = "category_gamemode";
 
     public static final String KEY_HEADPHONE_GAIN = "headphone_gain";
     public static final String KEY_EARPIECE_GAIN = "earpiece_gain";
@@ -101,6 +102,7 @@ public class DeviceSettings extends PreferenceFragment implements
     public static final String KEY_S2S_SWITCH = "sweep_to_sleep";
     public static final String KEY_S2W_SWITCH = "sweep_to_wake";
     public static final String KEY_FASTCHARGE_SWITCH = "fastcharge";
+    public static final String KEY_GAMEMODE_SWITCH = "game_mode";
     private static final String KEY_PEAK_REFRESH_RATE = "peakrefreshrate";
     private static final String KEY_MIN_REFRESH_RATE = "minrefreshrate";
     public static final String KEY_OFFSCREEN_GESTURES = "gesture_category";
@@ -135,6 +137,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private static TwoStatePreference mHWKSwitch;
     private static TwoStatePreference mSTapSwitch;
     private static TwoStatePreference mFastChargeSwitch;
+    private static TwoStatePreference mGameModeSwitch;
     private static TwoStatePreference mDoubleTapToWakeSwitch;
     private static TwoStatePreference mSweepToSleepSwitch;
     private static TwoStatePreference mSweepToWakeSwitch;
@@ -269,6 +272,17 @@ public class DeviceSettings extends PreferenceFragment implements
             initRefreshRatePreference(mPeakRefreshRatePref, PEAK_REFRESH_RATE);
             mMinRefreshRatePref = findPreference(KEY_MIN_REFRESH_RATE);
             initRefreshRatePreference(mMinRefreshRatePref, MIN_REFRESH_RATE);
+        }
+
+        PreferenceCategory gamemodeCategory = (PreferenceCategory) findPreference(KEY_GAMEMODE_CATEGORY);
+        mGameModeSwitch = (TwoStatePreference) findPreference(KEY_GAMEMODE_SWITCH);
+        if (mGameModeSwitch != null && GameModeSwitch.isSupported(getContext())){
+            mGameModeSwitch.setEnabled(true);
+            mGameModeSwitch.setChecked(GameModeSwitch.isCurrentlyEnabled(getContext()));
+            mGameModeSwitch.setOnPreferenceChangeListener(new GameModeSwitch(getContext()));
+        } else {
+            gamemodeCategory.removePreference(mGameModeSwitch);
+            gamemodeCategory.getParent().removePreference(gamemodeCategory);;
         }
 
         PreferenceCategory powerCategory = (PreferenceCategory) findPreference(KEY_POWER_CATEGORY);
